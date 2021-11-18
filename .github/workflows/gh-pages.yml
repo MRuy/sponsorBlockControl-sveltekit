@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
           npm install
           npm run build
         env:
-          BASE_PATH: /${{ $GITHUB_REPOSITORY }}
+          BASE_PATH: /${{ github.event.repository.name }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
