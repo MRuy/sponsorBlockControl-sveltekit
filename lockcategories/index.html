@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" href="favicon.png">
+	<title>Lock categories | SponsorBlockControl</title><base href="/$GITHUB_REPOSITORY/" data-svelte="svelte-164jhg6">
+
+		
+
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/start-f0cf7526.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/vendor-9fc4b0a7.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/singletons-12a22614.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/paths-28a87002.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/pages/__layout.svelte-03e803ca.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/stores-219cd492.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/stores-1663c3e2.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/pages/lockcategories.svelte-df9b66e7.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/config-8bce724e.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/Status-10cd6735.js">
+		<link rel="modulepreload" href="/$GITHUB_REPOSITORY/_app/chunks/VideoInput-c3824c4c.js">
+		<link rel="stylesheet" href="/$GITHUB_REPOSITORY/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/$GITHUB_REPOSITORY/_app/assets/pages/__layout.svelte-6b04007f.css">
+		<link rel="stylesheet" href="/$GITHUB_REPOSITORY/_app/assets/pages/lockcategories.svelte-274363b3.css">
+		<link rel="stylesheet" href="/$GITHUB_REPOSITORY/_app/assets/Status-06a94270.css">
+
+		<script type="module">
+			import { start } from "/$GITHUB_REPOSITORY/_app/start-f0cf7526.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"/$GITHUB_REPOSITORY","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/$GITHUB_REPOSITORY/_app/pages/__layout.svelte-03e803ca.js"),
+						import("/$GITHUB_REPOSITORY/_app/pages/lockcategories.svelte-df9b66e7.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "\u002Flockcategories",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+</head>
+
+<body>
+  <noscript>
+    For full functionality of this site it is necessary to enable JavaScript.
+    Here are the <a href="https://www.enable-javascript.com/">
+    instructions how to enable JavaScript in your web browser</a>.
+  </noscript>
+
+	<div id="svelte">
+
+
+
+
+
+
+<div><header class="svelte-5iur0"><img src="./favicon.png" width="64" height="64" alt="Logo" class="svelte-5iur0"> SponsorBlockControl
+</header>
+  <nav class="svelte-1th8yqc"><a  title="" href="./" class="svelte-1th8yqc">Home
+    </a><a  title="" href="./settings" class="svelte-1th8yqc">Settings
+    </a><a disabled title="" href="./username" class="svelte-1th8yqc">Username
+    </a><a  title="" href="./stats" class="svelte-1th8yqc">Stats
+    </a><a disabled title="" href="./voteonsegment" class="svelte-1th8yqc">Vote on segment
+    </a><a disabled title="" href="./categorychange" class="svelte-1th8yqc">Category change
+    </a><a disabled title="Requires VIP status" href="./lockcategories" class="svelte-1th8yqc active">Lock categories
+    </a><a disabled title="Requires VIP status" href="./shadowban" class="svelte-1th8yqc">Add/Remove Shadow ban
+    </a><a disabled title="Requires VIP status" href="./warnuser" class="svelte-1th8yqc">Warn user
+    </a><a disabled title="Requires VIP status" href="./cachepurge" class="svelte-1th8yqc">Clear cache / Purge segments
+    </a><a disabled title="Requires VIP status" href="./vip" class="svelte-1th8yqc">Add/Remove VIP
+    </a><a  title="" href="./userinfo" class="svelte-1th8yqc">User Info
+    </a><a  title="" href="./browse" class="svelte-1th8yqc">Browse
+    </a>
+</nav>
+  
+  
+
+<main><div class="container"><fieldset><legend>Lock categories</legend>
+      <div class="form svelte-1ei2iwv"><div><label for="videoid">VideoID:</label><br>
+          <input type="text" placeholder="VideoID or URL..." id="videoid" value="" value=""></div>
+        <div><div>Categories:</div>
+          <div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_sponsor" type="checkbox" value="sponsor">
+              <label for="category_sponsor">Sponsor</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_selfpromo" type="checkbox" value="selfpromo">
+              <label for="category_selfpromo">Unpaid/Self Promotion</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_interaction" type="checkbox" value="interaction">
+              <label for="category_interaction">Interaction Reminder (Subscribe)</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_intro" type="checkbox" value="intro">
+              <label for="category_intro">Intermission/Intro Animation</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_outro" type="checkbox" value="outro">
+              <label for="category_outro">Endcards/Credits</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_preview" type="checkbox" value="preview">
+              <label for="category_preview">Preview/Recap</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_music_offtopic" type="checkbox" value="music_offtopic">
+              <label for="category_music_offtopic">Music: Non-Music Section</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_poi_highlight" type="checkbox" value="poi_highlight">
+              <label for="category_poi_highlight">Highlight</label>
+            </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
+              <input id="category_filler" type="checkbox" value="filler">
+              <label for="category_filler">Filler Tangent</label>
+            </div></div>
+        <div><label for="reason">Lock Reason:</label><br>
+          <textarea id="reason" cols="80" rows="3" placeholder="Reason..." list="lockreasonsuggestions"></textarea>
+          <datalist id="lockreasonsuggestions"><option value="There are already several well-timed Sponsor submissions."></option><option value="Unique skits should not be skipped."></option><option value="Preview is not for spoken summaries."></option></datalist></div>
+
+        <div class="actions"><button>Check all</button>
+          <button disabled>Unlock</button>
+          <button disabled>Lock</button></div></div></fieldset>
+
+    <div class="status">Status: Ready!
+  
+  
+  
+  
+  
+  
+  
+</div></div>
+</main>
+  
+  
+</div>
+
+
+
+			
+		</div>
+</body>
+</html>
