@@ -90,6 +90,7 @@
         <TableSortHeader name="locked" sorting={sortDirection} current={currentSortBy}>Locked</TableSortHeader>
       </th>
       <th class="cell-text">UUID</th>
+      <th class="cell-text">Submitter UUID</th>
     </tr>
   </thead>
   <tbody>
@@ -144,6 +145,10 @@
         <td class="cell-text">
           <span class="wordbreak wordbreak--uuid">{segment.UUID}</span><br />
           <Copy value={segment.UUID} />
+        </td>
+        <td class="cell-text">
+          <span class="wordbreak wordbreak--uuid">{segment.userID}</span><br />
+          <Copy value={segment.userID} />
         </td>
       </tr>
       {/each}

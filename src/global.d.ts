@@ -13,6 +13,7 @@ type Segment = {
   locked: boolean,
   shadowHidden: boolean,
   actionType: string,
+  userID: string,
 }
 
 type TPurgeSegments = {
