@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import Status, { STATUS } from '../components/Status.svelte';
   import TableSegments from '../components/TableSegments.svelte';
   import Pagination from '../components/Pagination.svelte';
@@ -67,7 +67,7 @@
     postData.append('ignored', ignored.toString());
     const requestResponseTimeStartMs = performance.now();
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/searchSegments?${postData}`,
+      `${$Config.sponsorBlockApi}/api/searchSegments?${postData}`,
       {
         method: 'GET',
         headers: {

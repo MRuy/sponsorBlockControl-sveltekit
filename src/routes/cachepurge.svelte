@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import Status, { STATUS } from '../components/Status.svelte';
   import VideoInput from '../components/VideoInput.svelte';
 
@@ -10,9 +10,9 @@
     status = STATUS.WORKING;
     const postData = new URLSearchParams();
     postData.set('videoID', videoID);
-    postData.set('userID', $ConfigStore.privateUUID);
+    postData.set('userID', $Config.privateUUID);
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/clearCache?${postData}`,
+      `${$Config.sponsorBlockApi}/api/clearCache?${postData}`,
       {
         method: 'POST',
       }
@@ -35,10 +35,10 @@
     status = STATUS.WORKING;
     const postData: TPurgeSegments = {
       videoID,
-      userID: $ConfigStore.privateUUID,
+      userID: $Config.privateUUID,
     };
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/purgeAllSegments`,
+      `${$Config.sponsorBlockApi}/api/purgeAllSegments`,
       {
         method: 'POST',
         headers: {

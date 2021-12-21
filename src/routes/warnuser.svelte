@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import { isValidUserUUID } from '../utils';
   import Status, { STATUS } from '../components/Status.svelte';
 
@@ -11,12 +11,12 @@
   async function doAction(action = 'warn') {
     status = STATUS.WORKING;
     const postData: TWarnUser = {
-      issuerUserID: $ConfigStore.privateUUID,
+      issuerUserID: $Config.privateUUID,
       userID: userUUID,
       reason: reason,
       enabled: action === 'warn',
     };
-    const result = await fetch(`${$ConfigStore.sponsorBlockApi}/api/warnUser`, {
+    const result = await fetch(`${$Config.sponsorBlockApi}/api/warnUser`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

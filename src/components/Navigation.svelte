@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { ConfigStore, UserInfoStore } from '../stores';
+  import { Config } from '../stores/config';
+  import { UserInfo } from '../stores/userInfo';
   export let items = [];
   export let currentRoute = '';
 
@@ -24,8 +25,8 @@
       class:active={isCurrentRoute(item.route)}
       class:is-loading={clickedRoute === item.route}
       on:click={() => clickedRoute = item.route}
-      disabled={(item.uuidRequired === true && $ConfigStore.privateUUID === '') || (item?.requiresVIP === true && $UserInfoStore.vip !== true)}
-      title={(item?.requiresVIP === true && $UserInfoStore.vip !== true) ? 'Requires VIP status' : ''}
+      disabled={(item.uuidRequired === true && $Config.privateUUID === '') || (item?.requiresVIP === true && $UserInfo.vip !== true)}
+      title={(item?.requiresVIP === true && $UserInfo.vip !== true) ? 'Requires VIP status' : ''}
       href={item.route}>
       {item.title}
     </a>

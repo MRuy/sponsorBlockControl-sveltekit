@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import { onMount } from 'svelte';
   import Status, { STATUS } from '../components/Status.svelte';
   import { page } from '$app/stores';
@@ -80,7 +80,7 @@
 
   async function fetchData() {
     status = STATUS.WORKING;
-    const result = await fetch(`${$ConfigStore.sponsorBlockApi}/api/userInfo?publicUserID=${userID}`, {
+    const result = await fetch(`${$Config.sponsorBlockApi}/api/userInfo?publicUserID=${userID}`, {
       method: 'get',
     }).then(async function (response) {
       return await response.json();

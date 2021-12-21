@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { ConfigStore, CacheStore } from '../stores';
+  import { Config } from '../stores/config';
+  import { Cache } from '../stores/cache';
   import Status, { STATUS } from '../components/Status.svelte';
   import { minutesReadable } from '../utils';
 
@@ -18,7 +19,7 @@
   async function getTotalStats() {
     status = STATUS.WORKING;
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/getTotalStats`
+      `${$Config.sponsorBlockApi}/api/getTotalStats`
     ).then((response) => {
       return response.json();
     });
@@ -28,16 +29,16 @@
 
   async function refresh() {
     stats = await getTotalStats();
-    $CacheStore.totalstats = stats;
-    $CacheStore.totalstats_time = Date.now();
+    $Cache.totalstats = stats;
+    $Cache.totalstats_time = Date.now();
   }
 
   onMount(async () => {
     if (
-      'totalstats' in $CacheStore &&
-      $CacheStore.totalstats_time + CACHE_TIME > Date.now()
+      'totalstats' in $Cache &&
+      $Cache.totalstats_time + CACHE_TIME > Date.now()
     ) {
-      stats = $CacheStore.totalstats;
+      stats = $Cache.totalstats;
     } else {
       await refresh();
     }

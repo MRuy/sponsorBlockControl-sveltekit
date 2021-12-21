@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { ConfigStore, UserInfoStore } from '../stores';
+  import { Config } from '../stores/config';
+  import { UserInfo } from '../stores/userInfo';
   import { updateUserInfo } from '../utils';
 
-  let privateUUID = $ConfigStore.privateUUID;
+  let privateUUID = $Config.privateUUID;
   let privateUUIDGotSaved = false;
 
-  let sponsorBlockApi = $ConfigStore.sponsorBlockApi;
+  let sponsorBlockApi = $Config.sponsorBlockApi;
   let sponsorBlockApiGotSaved = false;
 
   function saveSponsorBlockApi(event) {
-    $ConfigStore.sponsorBlockApi = sponsorBlockApi;
+    $Config.sponsorBlockApi = sponsorBlockApi;
     sponsorBlockApiGotSaved = true;
     setTimeout((_) => {
       sponsorBlockApiGotSaved = false;
@@ -17,11 +18,11 @@
   }
 
   async function savePrivateUUID(event) {
-    if ($ConfigStore.privateUUID != privateUUID) {
+    if ($Config.privateUUID != privateUUID) {
       // reset the cache store
-      $UserInfoStore = null;
+      $UserInfo = null;
     }
-    $ConfigStore.privateUUID = privateUUID;
+    $Config.privateUUID = privateUUID;
     privateUUIDGotSaved = true;
     await updateUserInfo(true);
     setTimeout((_) => {

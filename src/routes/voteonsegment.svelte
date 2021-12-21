@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import { isValidSegmentUUID } from '../utils';
   import Status, { STATUS } from '../components/Status.svelte';
 
@@ -15,10 +15,10 @@
     status = STATUS.WORKING;
     const postData = new URLSearchParams();
     postData.set('UUID', segmentUUID);
-    postData.set('userID', $ConfigStore.privateUUID);
+    postData.set('userID', $Config.privateUUID);
     postData.set('type', voteType.toString());
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/voteOnSponsorTime?${postData}`,
+      `${$Config.sponsorBlockApi}/api/voteOnSponsorTime?${postData}`,
       {
         method: 'POST',
       }

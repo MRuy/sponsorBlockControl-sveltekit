@@ -1,10 +1,9 @@
 <script lang="ts">
+  import { Config } from '../stores/config';
   import { categoryList, categoryTitles } from '../config';
-  import { ConfigStore } from '../stores';
   import { page } from '$app/stores';
   import Status, { STATUS } from '../components/Status.svelte';
   import VideoInput from '../components/VideoInput.svelte';
-  import { onMount } from 'svelte';
 
   let categories = [];
   let videoID = $page.query.has('videoID') ? $page.query.get('videoID') : '';
@@ -34,12 +33,12 @@
     status = STATUS.WORKING;
     const postData: TLockCategories = {
       videoID: videoID,
-      userID: $ConfigStore.privateUUID,
+      userID: $Config.privateUUID,
       reason: reason,
       categories: categories,
     };
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/lockCategories`,
+      `${$Config.sponsorBlockApi}/api/lockCategories`,
       {
         method: lock ? 'post' : 'delete',
         headers: {
@@ -73,7 +72,7 @@
   }
 
   async function updateLockReasonFromServer() {
-    const response = await fetch(`${$ConfigStore.sponsorBlockApi}/api/lockReason?videoID=${videoID}`);
+    const response = await fetch(`${$Config.sponsorBlockApi}/api/lockReason?videoID=${videoID}`);
     const data = await response.json();
     const _lockReasonState = {};
     for (const item of data) {

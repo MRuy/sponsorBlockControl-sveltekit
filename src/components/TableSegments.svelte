@@ -6,7 +6,7 @@
   import SegmentTime from './SegmentTime.svelte';
   import Copy from './CopyToClipboard.svelte';
   import TableSortHeader from './TableSortHeader.svelte';
-  import { categoryColors } from '../stores';
+  import { categoryColors } from '../stores/categoryColors';
 
   let _segments: Segment[];
   $: _segments = [...segments];

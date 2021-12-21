@@ -1,5 +1,6 @@
 import { get } from 'svelte/store';
-import { ConfigStore, UserInfoStore } from "./stores";
+import { Config } from './stores/config';
+import { UserInfo } from './stores/userInfo';
 
 export const minutesReadable = (minutes: number, useLong = false): string => {
   const years = Math.floor(minutes / 60 / 24 / 365);
@@ -28,8 +29,8 @@ export const isValidSegmentUUID = (str: string): boolean => {
 export const updateUserInfo = async (force = false): Promise<any> => {
   console.log('updateUserInfo', 'updating data');
   const CACHE_TIME = 600000;
-  const userInfo = get(UserInfoStore);
-  const config = get(ConfigStore);
+  const userInfo = get(UserInfo);
+  const config = get(Config);
   if (force === true || ('_lastUpdateTime' in userInfo &&
     userInfo._lastUpdateTime + CACHE_TIME < Date.now())) {
     const result = await fetch(
@@ -38,7 +39,7 @@ export const updateUserInfo = async (force = false): Promise<any> => {
       return response.json();
     });
     userInfo._lastUpdateTime = Date.now();
-    UserInfoStore.update(store => ({...store, ...{
+    UserInfo.update(store => ({...store, ...{
       minutesSaved: result.minutesSaved,
       viewCount: result.viewCount,
       vip: result.vip,

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import { isValidUserUUID } from '../utils';
   import Status, { STATUS } from '../components/Status.svelte';
 
@@ -22,11 +22,11 @@
   async function doAction(action = 'add') {
     status = STATUS.WORKING;
     const postData = new URLSearchParams();
-    postData.set('adminUserID', $ConfigStore.privateUUID);
+    postData.set('adminUserID', $Config.privateUUID);
     postData.set('userID', userUUID);
     postData.set('enabled', (action === 'add').toString());
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/addUserAsVIP?${postData}`,
+      `${$Config.sponsorBlockApi}/api/addUserAsVIP?${postData}`,
       {
         method: 'post',
       }

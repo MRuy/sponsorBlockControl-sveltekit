@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { ConfigStore, UserInfoStore } from '../stores';
+  import { Config } from '../stores/config';
+  import { UserInfo } from '../stores/userInfo';
   import { isValidUserUUID, updateUserInfo } from '../utils';
   import Status, { STATUS } from '../components/Status.svelte';
 
@@ -12,7 +13,7 @@
   async function getUsername() {
     status = STATUS.WORKING;
     const response = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/getUsername?userID=${$ConfigStore.privateUUID}`
+      `${$Config.sponsorBlockApi}/api/getUsername?userID=${$Config.privateUUID}`
     );
     if (response.status === 200) {
       const resp = await response.json();
@@ -37,7 +38,7 @@
       postData.set('adminUserID', adminUserID);
     }
     const response = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/setUsername?${postData}`,
+      `${$Config.sponsorBlockApi}/api/setUsername?${postData}`,
       {
         method: 'POST',
       }
@@ -56,8 +57,8 @@
 
   async function loadUsername() {
     userName = await getUsername();
-    $UserInfoStore.userName = userName;
-    $UserInfoStore._lastUpdateTime = Date.now();
+    $UserInfo.userName = userName;
+    $UserInfo._lastUpdateTime = Date.now();
   }
 </script>
 
@@ -70,10 +71,10 @@
     <div class="form" class:working={status === STATUS.WORKING}>
       <fieldset>
         <legend>Your Username:</legend>
-        <input type="text" bind:value={$UserInfoStore.userName} placeholder="Username..." />
+        <input type="text" bind:value={$UserInfo.userName} placeholder="Username..." />
         <button
           on:click={async (_) => {
-            await setUsername($ConfigStore.privateUUID, userName);
+            await setUsername($Config.privateUUID, userName);
             await loadUsername();
           }}
           disabled={userName.length == 0}>Change</button>
@@ -96,7 +97,7 @@
           placeholder="Username..." />
         <button
           on:click={(_) => {
-            setUsername(targetUUID, targetUsername, $ConfigStore.privateUUID);
+            setUsername(targetUUID, targetUsername, $Config.privateUUID);
           }}
           disabled={!targetUUIDValid || targetUsername.length === 0}>Update</button>
       </fieldset>

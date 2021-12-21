@@ -1,6 +1,6 @@
 <script lang="ts">
   import { categoryList, categoryTitles } from '../config';
-  import { ConfigStore } from '../stores';
+  import { Config } from '../stores/config';
   import { isValidUserUUID } from '../utils';
   import Status, { STATUS } from '../components/Status.svelte';
 
@@ -17,13 +17,13 @@
   async function doAction(action = 'ban') {
     status = STATUS.WORKING;
     const postData = new URLSearchParams();
-    postData.set('adminUserID', $ConfigStore.privateUUID);
+    postData.set('adminUserID', $Config.privateUUID);
     postData.set('userID', userUUID);
     postData.set('enabled', (action === 'ban').toString());
     postData.set('unHideOldSubmissions', hideOldSubmissions.toString());
     postData.set('categories', JSON.stringify(categories));
     const result = await fetch(
-      `${$ConfigStore.sponsorBlockApi}/api/shadowBanUser?${postData}`,
+      `${$Config.sponsorBlockApi}/api/shadowBanUser?${postData}`,
       {
         method: 'post',
       }
