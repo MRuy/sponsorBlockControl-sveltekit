@@ -5,11 +5,12 @@
   let minutes = 0;
   let seconds = 0;
   let millisecondsLength = 3;
-  let millisecondsStr = '0'.repeat(millisecondsLength);
+  let millisecondsStr = '0';
 
   $: {
-    let _value = value;
+    let _value = Number(value);
     let _valueStr = _value.toString();
+    millisecondsStr = '0'.repeat(millisecondsLength);
     if (_valueStr.includes('.')) {
       millisecondsStr = _valueStr.split('.')[1].padEnd(millisecondsLength, '0').slice(0, millisecondsLength);
     }
