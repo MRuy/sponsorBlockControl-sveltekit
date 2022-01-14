@@ -73,6 +73,7 @@
   async function handleClick() {
     //const url = new URL(window.location);
     $page.url.searchParams.set('publicUserID', userID);
+    goto(`./userinfo/?publicUserID=${userID}`);
     //window.history.pushState({}, '', $page.path);
     await fetchData();
   }
