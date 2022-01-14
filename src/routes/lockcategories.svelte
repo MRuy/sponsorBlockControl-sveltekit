@@ -6,7 +6,7 @@
   import VideoInput from '../components/VideoInput.svelte';
 
   let categories = [];
-  let videoID = $page.query.has('videoID') ? $page.query.get('videoID') : '';
+  let videoID = $page.url.searchParams.has('videoID') ? $page.url.searchParams.get('videoID') : '';
   let status = STATUS.IDLE;
   let reason = '';
   let lockReasonState = {};

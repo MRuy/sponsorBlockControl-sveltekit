@@ -101,7 +101,7 @@
 <div>
 
   <Header />
-  <Navigation items={navigationItems} currentRoute={$page.path} />
+  <Navigation items={navigationItems} currentRoute={$page.url.pathname} />
   
   <slot />
   

@@ -64,16 +64,15 @@
   ];
 
   onMount(async () => {
-    if ($page.query.has('publicUserID')) {
-      userID = $page.query.get('publicUserID');
+    if ($page.url.searchParams.has('publicUserID')) {
+      userID = $page.url.searchParams.get('publicUserID');
       await fetchData();
     }
   });
 
   async function handleClick() {
     //const url = new URL(window.location);
-    $page.query.set('publicUserID', userID);
-    goto(`${$page.path}?publicUserID=${userID}`);
+    $page.url.searchParams.set('publicUserID', userID);
     //window.history.pushState({}, '', $page.path);
     await fetchData();
   }
