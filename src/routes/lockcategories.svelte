@@ -4,12 +4,17 @@
   import { page } from '$app/stores';
   import Status, { STATUS } from '../components/Status.svelte';
   import VideoInput from '../components/VideoInput.svelte';
+  import { onMount } from 'svelte';
 
   let categories = [];
-  let videoID = $page.url.searchParams.has('videoID') ? $page.url.searchParams.get('videoID') : '';
+  let videoID = '';
   let status = STATUS.IDLE;
   let reason = '';
   let lockReasonState = {};
+
+  onMount(() => {
+    videoID = $page.url.searchParams.has('videoID') ? $page.url.searchParams.get('videoID') : '';
+  });
 
   $: {
     // force calling the function if videoID changes
