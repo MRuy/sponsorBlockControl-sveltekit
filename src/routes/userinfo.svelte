@@ -64,8 +64,9 @@
   ];
 
   onMount(async () => {
-    if ($page.url.searchParams.has('publicUserID')) {
-      userID = $page.url.searchParams.get('publicUserID');
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('publicUserID')) {
+      userID = searchParams.get('publicUserID');
       await fetchData();
     }
   });

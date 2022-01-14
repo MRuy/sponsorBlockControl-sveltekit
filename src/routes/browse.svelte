@@ -40,8 +40,9 @@
   let status = STATUS.IDLE;
 
   onMount(async () => {
-    if ($sveltePage.url.searchParams.has('videoID')) {
-      videoID = $sveltePage.url.searchParams.get('videoID');
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('videoID')) {
+      videoID = searchParams.get('videoID');
       await getData();
     }
   });
