@@ -19,7 +19,7 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
-		trailingSlash: 'always',
+		trailingSlash: 'ignore',
 	}
 };
 
