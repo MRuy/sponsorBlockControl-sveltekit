@@ -19,7 +19,9 @@ export const categoryTitles = [
   'Preview/Recap',
   'Music: Non-Music Section',
   'Highlight',
-  'Filler Tangent'
+  'Filler Tangent',
+  'Exclusive Access',
+];
 
 export const actionTypeList = [
   'skip',
