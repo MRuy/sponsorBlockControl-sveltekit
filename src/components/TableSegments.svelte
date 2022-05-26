@@ -17,6 +17,14 @@
   const ACTIONTYPE_ICON = {
     skip: '⏭️',
     mute: '🔇',
+    full: '🏷️',
+    poi: '📌',
+  };
+  const ACTIONTYPE_NAME = {
+    skip: 'Skip',
+    mute: 'Muted',
+    full: 'Full',
+    poi: 'Highlight'
   };
 
   let currentSortBy = sortBy;
@@ -133,7 +141,14 @@
           </span>
         </td>
         <td class="cell-text">{segment.hidden || '—'}</td>
-        <td class="cell-text">{segment.actionType in ACTIONTYPE_ICON ? ACTIONTYPE_ICON[segment.actionType] : segment.actionType}</td>
+        <td class="cell-text">
+          <span
+            style="cursor:help"
+            title={segment.actionType in ACTIONTYPE_NAME ? ACTIONTYPE_NAME[segment.actionType] : segment.actionType}
+          >
+            {segment.actionType in ACTIONTYPE_ICON ? ACTIONTYPE_ICON[segment.actionType] : segment.actionType}
+          </span>
+        </td>
         <td class="cell-text">{segment.shadowHidden || '—'}</td>
         <td class="cell-text">
           {#if segment.locked}
