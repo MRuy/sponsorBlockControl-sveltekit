@@ -8,16 +8,22 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		prerender: {
+			default: true
+		},
 		paths: {
 			base: process.env.BASE_PATH ?? '',
 		},
-			adapter: adapter({
+		files: {
+			assets: './static'
+		},
+		adapter: adapter({
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
 			fallback: null
 		}),
-		trailingSlash: 'ignore',
+		trailingSlash: 'ignore'
 	}
 };
 

@@ -1,5 +1,5 @@
 <header>
-  <img src={`./favicon.png`} width="64" height="64" alt="Logo" /> SponsorBlockControl
+  <img src="/favicon.png" width="64" height="64" alt="Logo" /> SponsorBlockControl
 </header>
 
 <style>
