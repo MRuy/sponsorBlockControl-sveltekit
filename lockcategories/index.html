@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/sponsorBlockControl-sveltekit/_app/assets/pages/__layout.svelte-6b04007f.css">
 	<link rel="stylesheet" href="/sponsorBlockControl-sveltekit/_app/assets/pages/lockcategories.svelte-274363b3.css">
 	<link rel="stylesheet" href="/sponsorBlockControl-sveltekit/_app/assets/Status-06a94270.css">
-	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/start-782ea96f.js">
+	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/start-953faa18.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/vendor-029251f6.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/singletons-4a680913.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/paths-4b3c6e7e.js">
@@ -16,12 +16,12 @@
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/stores-4307d1b5.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/config-b3d4a71f.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/userInfo-a6af26e4.js">
-	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/pages/lockcategories.svelte-d66167d7.js">
-	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/config-8bce724e.js">
+	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/pages/lockcategories.svelte-dcfd72ba.js">
+	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/config-6a454163.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/Status-95729226.js">
 	<link rel="modulepreload" href="/sponsorBlockControl-sveltekit/_app/chunks/VideoInput-269e9c3d.js">
 			<script type="module">
-				import { start } from "/sponsorBlockControl-sveltekit/_app/start-782ea96f.js";
+				import { start } from "/sponsorBlockControl-sveltekit/_app/start-953faa18.js";
 				start({
 					target: document.querySelector("#svelte"),
 					paths: {"base":"/sponsorBlockControl-sveltekit","assets":"/sponsorBlockControl-sveltekit"},
@@ -34,7 +34,7 @@
 						error: null,
 						nodes: [
 							import("/sponsorBlockControl-sveltekit/_app/pages/__layout.svelte-a9c6e1fa.js"),
-						import("/sponsorBlockControl-sveltekit/_app/pages/lockcategories.svelte-d66167d7.js")
+						import("/sponsorBlockControl-sveltekit/_app/pages/lockcategories.svelte-dcfd72ba.js")
 						],
 						url: new URL("http://prerender/lockcategories"),
 						params: {}
@@ -108,6 +108,16 @@
             </div><div class="category-option svelte-1ei2iwv"><span class="lock svelte-1ei2iwv"></span>
               <input id="category_filler" type="checkbox" value="filler">
               <label for="category_filler">Filler Tangent</label>
+            </div>
+          <div>Action Types:</div>
+          <div class="actionType-option"><input id="actionType_skip" type="checkbox" value="skip" checked>
+              <label for="actionType_skip">Skip</label>
+            </div><div class="actionType-option"><input id="actionType_mute" type="checkbox" value="mute" checked>
+              <label for="actionType_mute">Mute</label>
+            </div><div class="actionType-option"><input id="actionType_full" type="checkbox" value="full" checked>
+              <label for="actionType_full">Full Video</label>
+            </div><div class="actionType-option"><input id="actionType_poi" type="checkbox" value="poi" checked>
+              <label for="actionType_poi">Point of Interest</label>
             </div></div>
         <div><label for="reason">Lock Reason:</label><br>
           <textarea id="reason" cols="80" rows="3" placeholder="Reason..." list="lockreasonsuggestions"></textarea>
