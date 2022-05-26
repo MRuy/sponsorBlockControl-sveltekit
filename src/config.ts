@@ -8,6 +8,7 @@ export const categoryList = [
   'music_offtopic',
   'poi_highlight',
   'filler',
+  'exclusive_access'
 ];
 
 export const categoryTitles = [
