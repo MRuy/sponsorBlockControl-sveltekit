@@ -14,16 +14,13 @@ const config = {
 		paths: {
 			base: process.env.BASE_PATH ?? '',
 		},
-		files: {
-			assets: './static'
-		},
 		adapter: adapter({
 			// default options are shown
 			pages: 'build',
 			assets: 'build',
 			fallback: null
 		}),
-		trailingSlash: 'ignore'
+		trailingSlash: 'always'
 	}
 };
 

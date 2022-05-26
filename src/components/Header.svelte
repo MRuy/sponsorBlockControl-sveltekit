@@ -1,5 +1,9 @@
+<script lang="ts">
+  import { base } from '$app/paths';
+</script>
+
 <header>
-  <img src="/favicon.png" width="64" height="64" alt="Logo" /> SponsorBlockControl
+  <img src={`${base}/favicon.png`} width="64" height="64" alt="Logo" /> SponsorBlockControl
 </header>
 
 <style>
