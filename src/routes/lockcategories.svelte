@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Config } from '../stores/config';
-  import { categoryList, categoryTitles } from '../config';
+  import { categoryList, categoryTitles, actionTypeList, actionTypeTitles } from '../config';
   import { page } from '$app/stores';
   import Status, { STATUS } from '../components/Status.svelte';
   import VideoInput from '../components/VideoInput.svelte';
@@ -11,6 +11,9 @@
   let status = STATUS.IDLE;
   let reason = '';
   let lockReasonState = {};
+  let actionTypes = [...actionTypeList];
+
+  const defaultChecked = [...categoryList.filter((e) => !['poi_highlight', 'filler', 'exclusive_access'].includes(e))];
 
   onMount(() => {
     videoID = $page.url.searchParams.has('videoID') ? $page.url.searchParams.get('videoID') : '';
@@ -41,6 +44,7 @@
       userID: $Config.privateUUID,
       reason: reason,
       categories: categories,
+      actionTypes: actionTypes,
     };
     const result = await fetch(
       `${$Config.sponsorBlockApi}/api/lockCategories`,
@@ -70,7 +74,7 @@
 
   function toggleCheckboxes() {
     if (categories.length === 0) {
-      categories = [...categoryList];
+      categories = [...defaultChecked];
     } else {
       categories = [];
     }
@@ -120,6 +124,18 @@
                 value={categoryId} />
               <label
                 for={'category_' + categoryId}>{categoryTitles[index]}</label>
+            </div>
+          {/each}
+          <div>Action Types:</div>
+          {#each actionTypeList as actionTypeId, index}
+            <div class="actionType-option">
+              <input
+                id={'actionType_' + actionTypeId}
+                type="checkbox"
+                bind:group={actionTypes}
+                value={actionTypeId} />
+              <label
+                for={'actionType_' + actionTypeId}>{actionTypeTitles[index]}</label>
             </div>
           {/each}
         </div>

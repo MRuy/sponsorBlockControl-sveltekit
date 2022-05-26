@@ -26,6 +26,7 @@ type TLockCategories = {
   userID: string,
   reason: string,
   categories: string[],
+  actionTypes: string[],
 }
 
 type TUserInfo = {

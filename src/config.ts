@@ -20,4 +20,17 @@ export const categoryTitles = [
   'Music: Non-Music Section',
   'Highlight',
   'Filler Tangent'
+
+export const actionTypeList = [
+  'skip',
+  'mute',
+  'full',
+  'poi'
+];
+
+export const actionTypeTitles = [
+  'Skip',
+  'Mute',
+  'Full Video',
+  'Point of Interest'
 ];
