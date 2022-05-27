@@ -4,7 +4,7 @@
   import TableSegments from '../components/TableSegments.svelte';
   import Pagination from '../components/Pagination.svelte';
   import { goto } from '$app/navigation';
-  import { page as sveltePage } from '$app/stores';
+  import { base as baseUrl } from '$app/paths';
   import { onMount } from 'svelte';
   import VideoInput from '../components/VideoInput.svelte';
 
@@ -102,7 +102,7 @@
   }
 
   async function onSubmit() {
-    goto(`./browse/?videoID=${videoID}`);
+    goto(`${baseUrl}/browse/?videoID=${videoID}`);
   }
 
   async function paginationHandler(event) {

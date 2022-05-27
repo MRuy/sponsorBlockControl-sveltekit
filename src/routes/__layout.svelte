@@ -10,71 +10,71 @@
 
   const navigationItems = [
     {
-      route: `/`,
+      route: `${baseUrl}/`,
       title: 'Home',
       uuidRequired: false,
     },
     {
-      route: `/settings`,
+      route: `${baseUrl}/settings`,
       title: 'Settings',
     },
     {
-      route: `/username`,
+      route: `${baseUrl}/username`,
       title: 'Username',
       uuidRequired: true,
     },
     {
-      route: `/stats`,
+      route: `${baseUrl}/stats`,
       title: 'Stats',
       uuidRequired: false,
     },
     {
-      route: `/voteonsegment`,
+      route: `${baseUrl}/voteonsegment`,
       title: 'Vote on segment',
       uuidRequired: true,
     },
     {
-      route: `/categorychange`,
+      route: `${baseUrl}/categorychange`,
       title: 'Category change',
       uuidRequired: true,
     },
     {
-      route: `/lockcategories`,
+      route: `${baseUrl}/lockcategories`,
       title: 'Lock categories',
       uuidRequired: true,
       requiresVIP: true,
     },
     {
-      route: `/shadowban`,
+      route: `${baseUrl}/shadowban`,
       title: 'Add/Remove Shadow ban',
       uuidRequired: true,
       requiresVIP: true,
     },
     {
-      route: `/warnuser`,
+      route: `${baseUrl}/warnuser`,
       title: 'Warn user',
       uuidRequired: true,
       requiresVIP: true,
     },
     {
-      route: `/cachepurge`,
+      route: `${baseUrl}/cachepurge`,
       title: 'Clear cache / Purge segments',
       uuidRequired: true,
       requiresVIP: true,
     },
     {
-      route: `/vip`,
+      route: `${baseUrl}/vip`,
       title: 'Add/Remove VIP',
       uuidRequired: true,
       requiresVIP: true,
     },
     {
-      route: `/userinfo`,
+      route: `${baseUrl}/userinfo`,
       title: 'User Info',
       uuidRequired: false,
     },
     {
-      route: `/browse`,
+      route: `${baseUrl}/browse`,
       title: 'Browse',
       uuidRequired: false,
     },
@@ -93,10 +93,6 @@
     $navigationState = 'loaded';
   }}
 />
-
-<svelte:head>
-  <base href={baseUrl+'/'} />
-</svelte:head>
 
 <div>
 
