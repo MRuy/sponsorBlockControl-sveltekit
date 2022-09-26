@@ -1,24 +1,22 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import { isValidSegmentUUID } from '../utils';
-  import { categoryList, categoryTitles } from '../config';
-  import Status, { STATUS } from '../components/Status.svelte';
+  import { Config } from '../../stores/config';
+  import { isValidSegmentUUID } from '../../utils';
+  import Status, { STATUS } from '../../components/Status.svelte';
 
   let status = STATUS.IDLE;
   let uuid = '';
   let uuidValid = false;
-  let selectedCategoryId = '';
 
   $: {
     uuidValid = isValidSegmentUUID(uuid);
   }
 
-  async function doVote() {
+  async function doVote(segmentUUID, voteType = 0) {
     status = STATUS.WORKING;
     const postData = new URLSearchParams();
-    postData.set('UUID', uuid);
+    postData.set('UUID', segmentUUID);
     postData.set('userID', $Config.privateUUID);
-    postData.set('category', selectedCategoryId);
+    postData.set('type', voteType.toString());
     const result = await fetch(
       `${$Config.sponsorBlockApi}/api/voteOnSponsorTime?${postData}`,
       {
@@ -30,7 +28,6 @@
     if (result === 200) {
       status = STATUS.SUCCESS;
       uuid = '';
-      selectedCategoryId = '';
     }
     if (result === 400) {
       status = STATUS.ERROR_INVALID;
@@ -42,13 +39,13 @@
 </script>
 
 <svelte:head>
-	<title>Category change | SponsorBlockControl</title>
+	<title>Vote on segment | SponsorBlockControl</title>
 </svelte:head>
 
 <main>
   <div class="container">
     <fieldset>
-      <legend>Change segment category</legend>
+      <legend>Vote on segment</legend>
       <div>
         <label for="uuid">Segment UUID:</label><br />
         <input
@@ -60,22 +57,22 @@
           placeholder="Segment UUID ..."
           disabled={status === STATUS.WORKING} />
       </div>
-      <div>
-        <label for="category">Category:</label><br />
-        <select id="category" bind:value={selectedCategoryId}>
-          <option value="">--- Select category ---</option>
-          {#each categoryList as categoryId, index}
-            <option value={categoryId}>{categoryTitles[index]}</option>
-          {/each}
-        </select>
-      </div>
       <div class="actions">
         <button
           on:click={(_) => {
-            doVote();
+            doVote(uuid, 20);
           }}
-          disabled={status === STATUS.WORKING || !uuidValid || status === STATUS.WORKING}>Change
-          category</button>
+          disabled={status === STATUS.WORKING || !uuidValid || status === STATUS.WORKING}>Undo Vote</button>
+        <button
+          on:click={(_) => {
+            doVote(uuid, 0);
+          }}
+          disabled={status === STATUS.WORKING || !uuidValid || status === STATUS.WORKING}>Downvote</button>
+        <button
+          on:click={(_) => {
+            doVote(uuid, 1);
+          }}
+          disabled={status === STATUS.WORKING || !uuidValid || status === STATUS.WORKING}>Upvote</button>
       </div>
     </fieldset>
 
@@ -84,11 +81,4 @@
 </main>
 
 <style>
-  select {
-    color: #dee2e6;
-    border: 1px solid #6c757d;
-    border-radius: .25rem;
-    background-color: #000;
-    padding: .175rem .5rem;
-  }
 </style>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { categoryList, categoryTitles } from '../config';
-  import { Config } from '../stores/config';
-  import { isValidUserUUID } from '../utils';
-  import Status, { STATUS } from '../components/Status.svelte';
+  import { categoryList, categoryTitles } from '../../config';
+  import { Config } from '../../stores/config';
+  import { isValidUserUUID } from '../../utils';
+  import Status, { STATUS } from '../../components/Status.svelte';
 
   let userUUID = '';
   let hideOldSubmissions = true;

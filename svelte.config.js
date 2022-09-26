@@ -8,8 +8,10 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		prerender: {
-			default: true
+		alias: {
+			'$components': './src/components',
+			'$stores': './src/stores',
+			
 		},
 		paths: {
 			base: process.env.BASE_PATH ?? '',

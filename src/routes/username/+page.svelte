@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import { UserInfo } from '../stores/userInfo';
-  import { isValidUserUUID, updateUserInfo } from '../utils';
-  import Status, { STATUS } from '../components/Status.svelte';
+  import { Config } from '../../stores/config';
+  import { UserInfo } from '../../stores/userInfo';
+  import { isValidUserUUID, updateUserInfo } from '../../utils';
+  import Status, { STATUS } from '../../components/Status.svelte';
 
   let userName = '';
   let targetUsername = '';

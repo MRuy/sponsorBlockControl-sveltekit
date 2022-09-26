@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import Status, { STATUS } from '../components/Status.svelte';
-  import VideoInput from '../components/VideoInput.svelte';
+  import { Config } from '../../stores/config';
+  import Status, { STATUS } from '../../components/Status.svelte';
+  import VideoInput from '../../components/VideoInput.svelte';
 
   let videoID = '';
   let status = STATUS.IDLE;

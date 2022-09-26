@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
+  import { Config } from '../../stores/config';
   import { onMount } from 'svelte';
-  import Status, { STATUS } from '../components/Status.svelte';
+  import Status, { STATUS } from '../../components/Status.svelte';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
 

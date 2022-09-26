@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import { isValidUserUUID } from '../utils';
-  import Status, { STATUS } from '../components/Status.svelte';
+  import { Config } from '../../stores/config';
+  import { isValidUserUUID } from '../../utils';
+  import Status, { STATUS } from '../../components/Status.svelte';
 
   let userUUID = '';
   let userUUIDValid = false;

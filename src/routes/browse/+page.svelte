@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import Status, { STATUS } from '../components/Status.svelte';
-  import TableSegments from '../components/TableSegments.svelte';
-  import Pagination from '../components/Pagination.svelte';
+  import { Config } from '../../stores/config';
+  import Status, { STATUS } from '../../components/Status.svelte';
+  import TableSegments from '../../components/TableSegments.svelte';
+  import Pagination from '../../components/Pagination.svelte';
   import { goto } from '$app/navigation';
   import { base as baseUrl } from '$app/paths';
   import { onMount } from 'svelte';
-  import VideoInput from '../components/VideoInput.svelte';
+  import VideoInput from '../../components/VideoInput.svelte';
 
   let service = 'youtube';
   let videoID = '';

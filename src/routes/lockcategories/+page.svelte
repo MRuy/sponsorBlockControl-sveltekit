@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import { categoryList, categoryTitles, actionTypeList, actionTypeTitles } from '../config';
+  import { Config } from '../../stores/config';
+  import { categoryList, categoryTitles, actionTypeList, actionTypeTitles } from '../../config';
   import { page } from '$app/stores';
-  import Status, { STATUS } from '../components/Status.svelte';
-  import VideoInput from '../components/VideoInput.svelte';
+  import Status, { STATUS } from '../../components/Status.svelte';
+  import VideoInput from '../../components/VideoInput.svelte';
   import { onMount } from 'svelte';
 
   let categories = [];

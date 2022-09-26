@@ -5,7 +5,6 @@
 <script lang="ts">
   import { Config } from '../stores/config';
   import GetUserInfo from '../components/GetUserInfo.svelte';
-  import SegmentTime from '../components/SegmentTime.svelte';
 </script>
 
 <main>

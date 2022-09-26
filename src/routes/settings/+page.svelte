@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Config } from '../stores/config';
-  import { UserInfo } from '../stores/userInfo';
-  import { updateUserInfo } from '../utils';
+  import { Config } from '../../stores/config';
+  import { UserInfo } from '../../stores/userInfo';
+  import { updateUserInfo } from '../../utils';
 
   let privateUUID = $Config.privateUUID;
   let privateUUIDGotSaved = false;
