@@ -1,1 +1,0 @@
-import{w as e}from"./config-68cbb0a0.js";const t=e("userinfo",{_lastUpdateTime:0,userID:"",userName:"",minutesSaved:0,segmentCount:0,ignoredSegmentCount:0,viewCount:0,ignoredViewCount:0,warnings:0,warningReason:"",reputation:0,vip:!1,lastSegmentID:""});export{t as U};
