@@ -4,6 +4,7 @@
   import Status, { STATUS } from '../../components/Status.svelte';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
 
   let userID = '';
   let userInfo: TUserInfo = {
@@ -74,7 +75,7 @@
   async function handleClick() {
     //const url = new URL(window.location);
     $page.url.searchParams.set('publicUserID', userID);
-    goto(`./userinfo/?publicUserID=${userID}`);
+    goto(`${base}/userinfo/?publicUserID=${userID}`, {replaceState:true});
     //window.history.pushState({}, '', $page.path);
     await fetchData();
   }

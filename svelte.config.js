@@ -11,7 +11,6 @@ const config = {
 		alias: {
 			'$components': './src/components',
 			'$stores': './src/stores',
-			
 		},
 		paths: {
 			base: process.env.BASE_PATH ?? '',
