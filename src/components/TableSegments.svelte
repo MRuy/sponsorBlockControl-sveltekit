@@ -19,14 +19,14 @@
     mute: '🔇',
     full: '♾️',
     poi: '📌',
-    chapter: '🏷️',
+    chapter: '🏷️'
   };
   const ACTIONTYPE_NAME = {
     skip: 'Skip',
     mute: 'Muted',
     full: 'Full',
     poi: 'Highlight',
-    chapter: 'Chapter',
+    chapter: 'Chapter'
   };
 
   let currentSortBy = sortBy;
