@@ -27,7 +27,7 @@ export const categoryColors = writable([
   },
   {
     id: 'preview',
-    color: '#0b9d65',
+    color: '#008fd6',
   },
   {
     id: 'poi_highlight',
@@ -36,5 +36,9 @@ export const categoryColors = writable([
   {
     id: 'filler',
     color: '#7300ff',
+  },
+  {
+    id: 'exclusive_access',
+    color: '#008a5c'
   }
 ]);
