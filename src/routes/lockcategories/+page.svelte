@@ -13,7 +13,7 @@
   let lockReasonState = {};
   let actionTypes = [...actionTypeList];
 
-  const defaultChecked = [...categoryList.filter((e) => !['poi_highlight', 'filler', 'exclusive_access'].includes(e))];
+  const defaultChecked = [...categoryList.filter((e) => !['poi_highlight', 'filler', 'exclusive_access', 'chapter'].includes(e))];
 
   onMount(() => {
     videoID = $page.url.searchParams.has('videoID') ? $page.url.searchParams.get('videoID') : '';

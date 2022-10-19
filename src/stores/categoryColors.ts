@@ -36,5 +36,9 @@ export const categoryColors = writable([
   {
     id: 'filler',
     color: '#7300ff',
+  },
+  {
+    id: 'chapter',
+    color: '#ffd679',
   }
 ]);

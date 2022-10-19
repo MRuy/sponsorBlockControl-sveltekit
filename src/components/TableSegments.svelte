@@ -17,14 +17,16 @@
   const ACTIONTYPE_ICON = {
     skip: '⏭️',
     mute: '🔇',
-    full: '🏷️',
+    full: '♾️',
     poi: '📌',
+    chapter: '🏷️',
   };
   const ACTIONTYPE_NAME = {
     skip: 'Skip',
     mute: 'Muted',
     full: 'Full',
-    poi: 'Highlight'
+    poi: 'Highlight',
+    chapter: 'Chapter',
   };
 
   let currentSortBy = sortBy;

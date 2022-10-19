@@ -8,7 +8,8 @@ export const categoryList = [
   'music_offtopic',
   'poi_highlight',
   'filler',
-  'exclusive_access'
+  'exclusive_access',
+  'chapter'
 ];
 
 export const categoryTitles = [
@@ -22,18 +23,21 @@ export const categoryTitles = [
   'Highlight',
   'Filler Tangent',
   'Exclusive Access',
+  'Chapter'
 ];
 
 export const actionTypeList = [
   'skip',
   'mute',
   'full',
-  'poi'
+  'poi',
+  'chapter'
 ];
 
 export const actionTypeTitles = [
   'Skip',
   'Mute',
   'Full Video',
-  'Point of Interest'
+  'Point of Interest',
+  'Chapter'
 ];
