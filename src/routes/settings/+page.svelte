@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Config } from '../../stores/config';
-  import { UserInfo } from '../../stores/userInfo';
+  import { UserInfo, UserInfoDefaults } from '../../stores/userInfo';
   import { updateUserInfo } from '../../utils';
 
   let privateUUID = $Config.privateUUID;
@@ -20,7 +20,7 @@
   async function savePrivateUUID(event) {
     if ($Config.privateUUID != privateUUID) {
       // reset the cache store
-      $UserInfo = null;
+      $UserInfo = {...UserInfoDefaults};
     }
     $Config.privateUUID = privateUUID;
     privateUUIDGotSaved = true;

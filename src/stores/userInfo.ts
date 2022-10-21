@@ -1,6 +1,6 @@
 import { writable } from 'svelte-local-storage-store';
 
-export const UserInfo = writable('userinfo', {
+export const UserInfoDefaults = {
   _lastUpdateTime: 0,
   userID: '',
   userName: '',
@@ -14,4 +14,6 @@ export const UserInfo = writable('userinfo', {
   reputation: 0,
   vip: false,
   lastSegmentID: '',
-});
+};
+
+export const UserInfo = writable('userinfo', {...UserInfoDefaults});
