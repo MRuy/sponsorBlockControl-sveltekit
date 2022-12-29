@@ -4,7 +4,7 @@
   import { isValidUserUUID, updateUserInfo } from '../../utils';
   import Status, { STATUS } from '../../components/Status.svelte';
 
-  let userName = '';
+  let userName = $UserInfo.userName;
   let targetUsername = '';
   let targetUUID = '';
   let targetUUIDValid = false;
@@ -71,7 +71,7 @@
     <div class="form" class:working={status === STATUS.WORKING}>
       <fieldset>
         <legend>Your Username:</legend>
-        <input type="text" bind:value={$UserInfo.userName} placeholder="Username..." />
+        <input type="text" bind:value={userName} placeholder="Username..." />
         <button
           on:click={async (_) => {
             await setUsername($Config.privateUUID, userName);
