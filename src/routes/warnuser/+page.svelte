@@ -2,11 +2,18 @@
   import { Config } from '../../stores/config';
   import { isValidUserUUID } from '../../utils';
   import Status, { STATUS } from '../../components/Status.svelte';
+  import { page } from '$app/stores';
+  import { onMount } from 'svelte';
 
   let userUUID = '';
   let userUUIDValid = false;
   let reason = '';
   let status = STATUS.IDLE;
+
+  onMount(() => {
+    userUUID = $page.url.searchParams.has('userID') ? $page.url.searchParams.get('userID') : '';
+    userUUIDValid = isValidUserUUID(userUUID);
+  });
 
   async function doAction(action = 'warn') {
     status = STATUS.WORKING;
