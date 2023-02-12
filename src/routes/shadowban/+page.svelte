@@ -5,6 +5,7 @@
   import Status, { STATUS } from '../../components/Status.svelte';
 
   let userUUID = '';
+  let lookForIPs = false;
   let hideOldSubmissions = true;
   let categories = [...categoryList];
   let userUUIDValid = false;
@@ -20,6 +21,7 @@
     postData.set('adminUserID', $Config.privateUUID);
     postData.set('userID', userUUID);
     postData.set('enabled', (action === 'ban').toString());
+    postData.set('lookForIPS', lookForIPs.toString());
     postData.set('unHideOldSubmissions', hideOldSubmissions.toString());
     postData.set('categories', JSON.stringify(categories));
     const result = await fetch(
@@ -59,6 +61,14 @@
             bind:value={userUUID}
             size="64"
             placeholder="Users UUID..." />
+        </div>
+
+        <div>
+          <input
+            id="lookforips"
+            type="checkbox"
+            bind:checked={lookForIPs} />
+          <label for="lookforips">Look for IPs</label>
         </div>
 
         <div>
