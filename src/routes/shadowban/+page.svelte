@@ -21,7 +21,7 @@
     postData.set('adminUserID', $Config.privateUUID);
     postData.set('userID', userUUID);
     postData.set('enabled', (action === 'ban').toString());
-    postData.set('lookForIPS', lookForIPs.toString());
+    postData.set('lookForIPs', lookForIPs.toString());
     postData.set('unHideOldSubmissions', hideOldSubmissions.toString());
     postData.set('categories', JSON.stringify(categories));
     const result = await fetch(
