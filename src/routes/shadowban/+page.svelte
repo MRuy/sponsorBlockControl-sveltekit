@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { categoryList, categoryTitles } from '../../config';
+  import { categoryList, categoryTitles, deArrowTypeList, deArrowTypeTitles } from '../../config';
   import { Config } from '../../stores/config';
   import { isValidUserUUID } from '../../utils';
   import Status, { STATUS } from '../../components/Status.svelte';
@@ -8,6 +8,7 @@
   let lookForIPs = false;
   let hideOldSubmissions = true;
   let categories = [...categoryList];
+  let deArrowTypes = [...deArrowTypeList];
   let userUUIDValid = false;
   let status = STATUS.IDLE;
 
@@ -24,6 +25,7 @@
     postData.set('lookForIPs', lookForIPs.toString());
     postData.set('unHideOldSubmissions', hideOldSubmissions.toString());
     postData.set('categories', JSON.stringify(categories));
+    postData.set('deArrowTypes', JSON.stringify(deArrowTypes));
     const result = await fetch(
       `${$Config.sponsorBlockApi}/api/shadowBanUser?${postData}`,
       {
@@ -80,12 +82,12 @@
         </div>
 
         <div
-          class="categories-to-hide"
+          class="hide-option-container"
           hidden={!hideOldSubmissions}
         >
           <div>Categories to hide:</div>
           {#each categoryList as categoryId, index}
-            <div class="category-option">
+            <div class="to-hide-option">
               <input
                 id={'category_' + categoryId}
                 type="checkbox"
@@ -93,6 +95,24 @@
                 value={categoryId} />
               <label
                 for={'category_' + categoryId}>{categoryTitles[index]}</label>
+            </div>
+          {/each}
+        </div>
+
+        <div
+          class="hide-option-container"
+          hidden={!hideOldSubmissions}
+        >
+          <div>DeArrow submissions to hide:</div>
+          {#each deArrowTypeList as deArrowType, index}
+            <div class="to-hide-option">
+              <input
+                id={'dearrow_type_' + deArrowType}
+                type="checkbox"
+                bind:group={deArrowTypes}
+                value={deArrowType} />
+              <label
+                for={'dearrow_type_' + deArrowType}>{deArrowTypeTitles[index]}</label>
             </div>
           {/each}
         </div>
@@ -132,10 +152,10 @@
     z-index: 1000;
     background: rgba(0, 0, 0, 0.3);
   }
-  .categories-to-hide {
+  .hide-option-container {
     margin-left: 16px;
   }
-  .category-option {
+  .to-hide-option {
     margin-left: 16px;
   }
 </style>

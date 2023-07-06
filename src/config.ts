@@ -41,3 +41,13 @@ export const actionTypeTitles = [
   'Point of Interest',
   'Chapter'
 ];
+
+export const deArrowTypeList = [
+  'title',
+  'thumbnail'
+];
+
+export const deArrowTypeTitles = [
+  'Title',
+  'Thumbnail'
+];
