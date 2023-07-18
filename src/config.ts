@@ -51,3 +51,13 @@ export const deArrowTypeTitles = [
   'Title',
   'Thumbnail'
 ];
+
+export const warningTypeList = [
+  0,
+  1
+];
+
+export const warningTypeTitles = [
+  'SponsorBlock',
+  'DeArrow'
+];

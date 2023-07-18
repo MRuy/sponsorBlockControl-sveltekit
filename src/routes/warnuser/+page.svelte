@@ -4,10 +4,12 @@
   import Status, { STATUS } from '../../components/Status.svelte';
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
+	import { warningTypeList, warningTypeTitles } from '../../config';
 
   let userUUID = '';
   let userUUIDValid = false;
   let reason = '';
+  let type = 0;
   let status = STATUS.IDLE;
 
   onMount(() => {
@@ -21,6 +23,7 @@
       issuerUserID: $Config.privateUUID,
       userID: userUUID,
       reason: reason,
+      type: type,
       enabled: action === 'warn',
     };
     const result = await fetch(`${$Config.sponsorBlockApi}/api/warnUser`, {
@@ -81,6 +84,13 @@
             placeholder="Reason..."></textarea>
         </div>
 
+        <select id="warning-type" bind:value={type}>
+          <option value="">--- Where it applies ---</option>
+          {#each warningTypeList as warningType, index}
+            <option value={warningType}>{warningTypeTitles[index]}</option>
+          {/each}
+        </select>
+
         <div class="actions">
           <button
             type="button"
@@ -115,5 +125,13 @@
     height: 100%;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.3);
+  }
+
+  select {
+    color: #dee2e6;
+    border: 1px solid #6c757d;
+    border-radius: .25rem;
+    background-color: #000;
+    padding: .175rem .5rem;
   }
 </style>

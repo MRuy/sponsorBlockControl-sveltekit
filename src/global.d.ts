@@ -38,6 +38,7 @@ type TWarnUser = {
   issuerUserID: string,
   userID: string,
   reason: string,
+  type: number,
   enabled: boolean,
 }
 
