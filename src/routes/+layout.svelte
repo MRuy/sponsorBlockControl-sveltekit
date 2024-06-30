@@ -57,6 +57,12 @@
       requiresVIP: true,
     },
     {
+      route: `${baseUrl}/batchwarn`,
+      title: 'Batch warn',
+      uuidRequired: true,
+      requiresVIP: true,
+    },
+    {
       route: `${baseUrl}/cachepurge`,
       title: 'Clear cache / Purge segments',
       uuidRequired: true,
