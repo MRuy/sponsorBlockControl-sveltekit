@@ -43,6 +43,11 @@
     if (result === 403) {
       status = STATUS.ERROR_UNAUTHORIZED;
     }
+
+    if (status === STATUS.WORKING) {
+      // Still "working", but request has already finished - this means we've missed an error
+      status = STATUS.ERROR_OTHER;
+    }
   }
 </script>
 

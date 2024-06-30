@@ -50,6 +50,11 @@
     if (result === 409) {
       status = STATUS.DUPLICATE;
     }
+
+    if (status === STATUS.WORKING) {
+      // Still "working", but request has already finished - this means we've missed an error
+      status = STATUS.ERROR_OTHER;
+    }
   }
 </script>
 
