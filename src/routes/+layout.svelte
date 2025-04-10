@@ -69,6 +69,12 @@
       requiresVIP: true,
     },
     {
+      route: `${baseUrl}/setconfig`,
+      title: 'Set Config',
+      uuidRequired: true,
+      requiresVIP: true,
+    },
+    {
       route: `${baseUrl}/vip`,
       title: 'Add/Remove VIP',
       uuidRequired: true,

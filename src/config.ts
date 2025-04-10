@@ -61,3 +61,9 @@ export const warningTypeTitles = [
   'SponsorBlock',
   'DeArrow'
 ];
+
+export const serverConfigKeyList = [
+  'old-submitter-block-date',
+  'max-users-per-minute',
+  'max-users-per-minute-dearrow'
+];
