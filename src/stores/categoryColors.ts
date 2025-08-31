@@ -44,5 +44,9 @@ export const categoryColors = writable([
   {
     id: 'exclusive_access',
     color: '#008a5c',
+  },
+  {
+    id: 'hook',
+    color: '#395699',
   }
 ]);

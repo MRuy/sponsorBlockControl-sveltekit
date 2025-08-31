@@ -5,6 +5,7 @@ export const categoryList = [
   'intro',
   'outro',
   'preview',
+  'hook',
   'music_offtopic',
   'poi_highlight',
   'filler',
@@ -19,9 +20,10 @@ export const categoryTitles = [
   'Intermission/Intro Animation',
   'Endcards/Credits',
   'Preview/Recap',
+  'Hook/Greetings',
   'Music: Non-Music Section',
   'Highlight',
-  'Filler Tangent',
+  'Tangents/Jokes',
   'Exclusive Access',
   'Chapter'
 ];
