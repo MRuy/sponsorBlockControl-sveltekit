@@ -14,7 +14,7 @@
   let isLastPage = false;
   let isFirstPage = true;
   let lastPageNumberIndex = 0;
-  let minVotes = -2;
+  let minVotes = -Infinity;
   let maxVotes = Infinity;
   let minViews = 0;
   let maxViews = Infinity;
