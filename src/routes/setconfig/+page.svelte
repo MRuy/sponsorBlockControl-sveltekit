@@ -94,10 +94,11 @@
       </div>
       <div>
         <label for="value">New value:</label><br />
-        <input
+        <textarea
           id="value"
-          type="text"
           size="64"
+          cols="80"
+          rows="10"
           bind:value={value}
           placeholder="Value ..."
           disabled={status === STATUS.WORKING} />
@@ -105,10 +106,11 @@
 
       <div>
         <label for="uuid">Current value:</label><br />
-        <input
-          id="value"
-          type="text"
+        <textarea
+          id="currentValue"
           size="64"
+          cols="80"
+          rows="10"
           bind:value={currentValue}
           disabled={true} />
       </div>
