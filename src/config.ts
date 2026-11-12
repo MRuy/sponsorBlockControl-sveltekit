@@ -67,5 +67,6 @@ export const warningTypeTitles = [
 export const serverConfigKeyList = [
   'old-submitter-block-date',
   'max-users-per-minute',
-  'max-users-per-minute-dearrow'
+  'max-users-per-minute-dearrow',
+  'request-validator-rules'
 ];
